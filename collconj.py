@@ -1,3 +1,4 @@
+import sys
 def collatz(num, cache, largestloop):
     startnum = num
     count = 0 
@@ -17,6 +18,8 @@ def collatz(num, cache, largestloop):
     return cache, largestloop
 
 if __name__ == "__main__":
+    mxnum = sys.maxsize*2+1
+    print('max value for your system = '+ str(mxnum)+ " it will break if you input this value or beyond")
     num = int(input("input a positive integer:"))
     cache = 1 # contains the largest num completed by function, 
               # if function does not break loop we have found solution
