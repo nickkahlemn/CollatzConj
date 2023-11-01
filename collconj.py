@@ -8,7 +8,8 @@ def collatz(num, cache, largestloop):
         else:
             num = num/2
             count += 1
-    if (count > 400):
+    if (count > 400): # ignore loops less than 400 since it becomes
+                      # too much in the console, can be changed to any value
         if (count > largestloop):
             largestloop = count
         print (startnum, count, largestloop)
@@ -16,9 +17,14 @@ def collatz(num, cache, largestloop):
     return cache, largestloop
 
 if __name__ == "__main__":
-    num = int(input("input num > 4:"))
-    cache = 4 # contains the largest num completed by function, if function does not break loop we have found solution
-    largestloop = 0
+    num = int(input("input a positive integer:"))
+    cache = 1 # contains the largest num completed by function, 
+              # if function does not break loop we have found solution
+    
+    largestloop = 0 # Does NOT equal total number of steps to 1, 
+                    # only the first value will be the total number of steps 
+                    # the rest will be steps to the cache value (num-1)
+    print("num / count / longest loop to cache")
     while(1):
-        cache, largestloop = collatz(num, cache, largestloop)
+        cache, largestloop = collatz(num, cache, largestloop) # update global variables with computed results 
         num += 1
