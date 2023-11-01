@@ -17,7 +17,7 @@ def collatz(num, cache, largestloop):
 
 if __name__ == "__main__":
     num = int(input("input num > 4:"))
-    cache = 4
+    cache = 4 # contains the largest num completed by function, if function does not break loop we have found solution
     largestloop = 0
     while(1):
         cache, largestloop = collatz(num, cache, largestloop)
